@@ -13,7 +13,7 @@ function appendToDisplay(value) {
     }
     updateDisplay();
 }
-
+fill.style.width = `${Math.m
 function clearDisplay() {
     currentInput = '0';
     updateDisplay();
@@ -45,17 +45,25 @@ function calculate() {
 const skillsSection = document.getElementById("skills");
 if (skillsSection) {
   const skills = Array.from(document.querySelectorAll(".skill"));
-  const fillObserver = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (!e.isIntersecting) return;
-      skills.forEach((s) => {
-        const level = Number(s.dataset.level || 0);
-        const fill = s.querySelector(".skill__fill");
-        if (fill) fill.style.width = `${Math.max(0, Math.min(level, 100))}%`;
+
+  const fillObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+
+        skills.forEach((s) => {
+          const level = Number(s.dataset.level || 0);
+          const fill = s.querySelector(".skill__fill");
+          if (fill) {
+            fill.style.width = `${Math.max(0, Math.min(level, 100))}%`;
+          }
+        });
+
+        fillObserver.disconnect();
       });
-      fillObserver.disconnect();
-    });
-  }, { threshold: 0.35 });
+    },
+    { threshold: 0.35 }
+  );
 
   fillObserver.observe(skillsSection);
 }
