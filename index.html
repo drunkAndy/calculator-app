@@ -1,39 +1,600 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>簡易計算機</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andy Liu | Portfolio</title>
+  <meta name="description" content="Single page portfolio - About, Skills, Experience, Projects, Contact." />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <div class="calculator">
-        <div class="display" id="display">0</div>
-        <div class="buttons">
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="appendToDisplay('/')">/</button>
-            <button onclick="appendToDisplay('*')">*</button>
-            <button onclick="deleteLast()">←</button>
-            
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button onclick="appendToDisplay('-')">-</button>
-            
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button onclick="appendToDisplay('+')">+</button>
-            
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button onclick="calculate()" class="equals">=</button>
-            
-            <button onclick="appendToDisplay('0')" class="zero">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-        </div>
+  <a class="skip" href="#about">跳到內容</a>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__text">Andy</span>
+      </a>
+
+      <button class="navbtn" id="navBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <span class="navbtn__bar"></span>
+        <span class="navbtn__bar"></span>
+        <span class="navbtn__bar"></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#experience" class="nav__link">Experience</a>
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#contact" class="nav__link">Contact</a>
+      </nav>
     </div>
-    <script src="script.js"></script>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__left">
+          <div class="avatar" aria-hidden="true">
+            <!-- Inline SVG avatar, no external image needed -->
+            <svg viewBox="0 0 120 120" role="img" aria-label="avatar">
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#6aa7ff"/>
+                  <stop offset="1" stop-color="#7c5cff"/>
+                </linearGradient>
+              </defs>
+              <circle cx="60" cy="60" r="56" fill="url(#g)" opacity="0.25"/>
+              <circle cx="60" cy="52" r="18" fill="#e7eefc"/>
+              <path d="M28 98c7-20 57-20 64 0" fill="#e7eefc"/>
+              <circle cx="60" cy="60" r="56" fill="none" stroke="url(#g)" stroke-width="2"/>
+            </svg>
+          </div>
+
+          <h1 class="hero__title">
+            Andy Liu
+            <span class="hero__badge">Single Page Portfolio</span>
+          </h1>
+
+          <p class="hero__subtitle">
+            前端入門中｜喜歡把東西做得清楚、好用、好看。
+            <br />
+            這份網站展示：技能、經歷時間軸、作品集與聯絡方式。
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#projects">看作品</a>
+            <a class="btn" href="#contact">聯絡我</a>
+          </div>
+
+          <ul class="meta">
+            <li><strong>Email：</strong><a href="mailto:andy@example.com">andy@example.com</a>（請改成你的）</li>
+            <li><strong>GitHub：</strong><a href="#" target="_blank" rel="noreferrer">https://github.com/yourname</a>（可選）</li>
+            <li><strong>IG/Threads：</strong><a href="#" target="_blank" rel="noreferrer">@yourid</a>（可選）</li>
+          </ul>
+        </div>
+
+        <div class="hero__right">
+          <div class="card card--soft">
+            <h2 class="card__title">快速導覽</h2>
+            <p class="card__desc">點選下方錨點，會平滑捲動到區塊（smooth scroll）。</p>
+            <div class="chips">
+              <a class="chip" href="#about">About</a>
+              <a class="chip" href="#skills">Skills</a>
+              <a class="chip" href="#experience">Experience</a>
+              <a class="chip" href="#projects">Projects</a>
+              <a class="chip" href="#contact">Contact</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="card__title">我擅長的風格</h2>
+            <ul class="checklist">
+              <li>清晰的版面結構（Grid / Flex）</li>
+              <li>可讀性與一致性（Spacing / Typography）</li>
+              <li>小而有感的互動（Hover / Transition / Scroll 動畫）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">About</h2>
+          <p class="section__hint">個人資訊區塊（姓名、照片、聯絡方式）</p>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3 class="card__title">自我介紹</h3>
+            <p class="card__desc">
+              我正在練習把「想法」快速做成「可用的網頁」：先完成架構與功能，再逐步打磨設計與互動。
+              目前會使用 HTML / CSS / JavaScript，並用 Git/GitHub 管理版本。
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">聯絡方式</h3>
+            <div class="contactline">
+              <span class="contactline__label">Email（必填）</span>
+              <button class="btn btn--small" id="copyEmail" type="button" data-email="andy@example.com">一鍵複製</button>
+            </div>
+            <p class="muted">提醒：把 Email / GitHub / 社群連結改成你的真實資料。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS (A/B 版本會在不同分支做) -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Skills</h2>
+          <p class="section__hint">A/B Test：此區塊將在兩個分支做兩種版本（進度條 vs 標籤雲）</p>
+        </div>
+
+        <div class="card">
+          <p class="card__desc">
+            目前 main 先放 placeholder。你會在：
+            <code>feature/skills-bars</code> 做 A 版（進度條），
+            <code>feature/skills-tags</code> 做 B 版（標籤雲）。
+            最後只合併其中一個回 main。
+          </p>
+        </div>
+
+        <div class="skills-placeholder">
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Experience</h2>
+          <p class="section__hint">工作／經歷時間軸（至少 3 項，涵蓋國中/高中/大一）</p>
+        </div>
+
+        <ol class="timeline">
+          <li class="timeline__item">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <p class="timeline__time">國中（例如：2019）</p>
+              <h3 class="timeline__title">校內專題 / 科展 / 社團小組</h3>
+              <p class="timeline__desc">參與小組分工，負責資料整理與簡報製作；學到「把複雜內容講清楚」。</p>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <p class="timeline__time">高中（例如：2022）</p>
+              <h3 class="timeline__title">課堂作品 / 比賽 / 校內活動</h3>
+              <p class="timeline__desc">完成小型作品（海報/簡報/網站），練習排版與資料呈現；與同學協作完成任務。</p>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <p class="timeline__time">大一（例如：2025）</p>
+              <h3 class="timeline__title">前端練習與 Git/GitHub 流程</h3>
+              <p class="timeline__desc">使用 VS Code 開發，透過 branch / PR / revert 練習版本控制，並部署到 GitHub Pages。</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Projects</h2>
+          <p class="section__hint">作品集卡片（至少 3 件，含名稱、簡介、角色分工、連結/圖片可選）</p>
+        </div>
+
+        <div class="cards">
+          <article class="pcard">
+            <h3 class="pcard__title">Calculator Web App</h3>
+            <p class="pcard__desc">用 HTML/CSS/JS 實作基本四則運算，練習 DOM 操作與事件處理。</p>
+            <p class="pcard__role"><strong>角色分工：</strong>獨立完成（UI + JS 邏輯）</p>
+            <div class="pcard__links">
+              <a class="link" href="#" target="_blank" rel="noreferrer">Demo（之後換成 Pages 連結）</a>
+              <a class="link" href="#" target="_blank" rel="noreferrer">Repo</a>
+            </div>
+          </article>
+
+          <article class="pcard">
+            <h3 class="pcard__title">Resume Single Page</h3>
+            <p class="pcard__desc">本作業：包含 About / Skills / Timeline / Projects / Contact，並加入響應式與互動動畫。</p>
+            <p class="pcard__role"><strong>角色分工：</strong>獨立完成（資訊架構 + RWD + 動畫）</p>
+            <div class="pcard__links">
+              <a class="link" href="#top">回到頂部</a>
+            </div>
+          </article>
+
+          <article class="pcard">
+            <h3 class="pcard__title">Class Assignment / Side Project</h3>
+            <p class="pcard__desc">可放你國高中或大一的任一作業/專題（例如：簡報、影片專案、程式練習）。</p>
+            <p class="pcard__role"><strong>角色分工：</strong>與同學協作（資料蒐集 / 內容撰寫 / 發表）</p>
+            <div class="pcard__links">
+              <a class="link" href="#" target="_blank" rel="noreferrer">連結（可選）</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Contact</h2>
+          <p class="section__hint">聯絡方式（Email 必填）</p>
+        </div>
+
+        <div class="card">
+          <p class="card__desc">
+            有任何合作或交流都歡迎聯絡我：
+            <a href="mailto:andy@example.com">andy@example.com</a>
+          </p>
+          <p class="muted">（請記得把 email / 社群連結改成你自己的）</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span class="muted">© <span id="year"></span> Andy Liu</span>
+        <a class="link" href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
+style.css（整份貼上覆蓋）
+css
+複製程式碼
+:root{
+  --bg: #0b1220;
+  --panel: rgba(255,255,255,0.06);
+  --panel2: rgba(255,255,255,0.09);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.68);
+  --line: rgba(255,255,255,0.12);
+  --accent: #2196f3;
+  --accent2: #7c5cff;
+  --shadow: 0 14px 40px rgba(0,0,0,0.35);
+  --radius: 18px;
+  --max: 1040px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif;
+  background:
+    radial-gradient(900px 500px at 10% 0%, rgba(33,150,243,0.25), transparent 60%),
+    radial-gradient(700px 500px at 90% 10%, rgba(124,92,255,0.22), transparent 55%),
+    var(--bg);
+  color: var(--text);
+}
+
+a{ color: inherit; }
+code{ background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 8px; }
+.container{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+.skip{
+  position:absolute; left:-999px; top: 10px;
+  background: #fff; color:#000; padding: 8px 10px; border-radius: 10px;
+}
+.skip:focus{ left: 12px; z-index: 9999; }
+
+.topbar{
+  position: sticky; top: 0; z-index: 20;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+  background: rgba(11,18,32,0.6);
+}
+.topbar__inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 12px 0;
+}
+.brand{ display:flex; gap:10px; align-items:center; text-decoration:none; }
+.brand__dot{
+  width: 12px; height: 12px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 0 0 6px rgba(33,150,243,0.12);
+}
+.brand__text{ font-weight: 800; letter-spacing: 0.2px; }
+
+.nav{
+  display:flex; gap: 14px; align-items:center;
+}
+.nav__link{
+  text-decoration:none;
+  padding: 8px 10px;
+  border-radius: 12px;
+  color: var(--muted);
+  transition: transform .18s ease, background .18s ease, color .18s ease;
+}
+.nav__link:hover{
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+.nav__link.is-active{
+  background: rgba(33,150,243,0.18);
+  color: var(--text);
+}
+
+.navbtn{
+  display:none;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px;
+  cursor:pointer;
+}
+.navbtn__bar{
+  display:block;
+  width: 22px; height: 2px;
+  background: rgba(255,255,255,0.9);
+  margin: 5px 0;
+  border-radius: 2px;
+}
+
+.hero{ padding: 44px 0 22px; }
+.hero__grid{
+  display:grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+  align-items: start;
+}
+.hero__left{ padding: 6px 0; }
+.avatar{
+  width: 86px; height: 86px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--line);
+  display:grid; place-items:center;
+  box-shadow: var(--shadow);
+}
+
+.hero__title{
+  margin: 14px 0 6px;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.4px;
+}
+.hero__badge{
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  vertical-align: middle;
+  color: rgba(255,255,255,0.9);
+  background: linear-gradient(135deg, rgba(33,150,243,0.2), rgba(124,92,255,0.18));
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.hero__subtitle{
+  margin: 10px 0 18px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.hero__cta{ display:flex; gap: 10px; flex-wrap: wrap; }
+
+.btn{
+  display:inline-flex;
+  align-items:center; justify-content:center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.06);
+  text-decoration:none;
+  cursor:pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+.btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.10); }
+.btn--primary{
+  border-color: rgba(33,150,243,0.35);
+  background: linear-gradient(135deg, rgba(33,150,243,0.35), rgba(124,92,255,0.22));
+}
+.btn--small{ padding: 8px 10px; border-radius: 12px; font-size: 13px; }
+
+.meta{
+  margin: 16px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+.meta a{ color: rgba(255,255,255,0.9); }
+
+.section{ padding: 26px 0; }
+.section__head{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.section__title{ margin: 0; font-size: 22px; letter-spacing: -0.2px; }
+.section__hint{ margin: 0; color: var(--muted); font-size: 14px; }
+
+.card{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.card--soft{ background: var(--panel2); }
+.card__title{ margin: 0 0 8px; font-size: 16px; }
+.card__desc{ margin: 0; color: var(--muted); line-height: 1.7; }
+
+.grid2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.chips{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.chip{
+  text-decoration:none;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.86);
+  transition: transform .18s ease, background .18s ease;
+}
+.chip:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.10); }
+
+.checklist{ margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.7; }
+.muted{ color: var(--muted); }
+
+.skills-placeholder{
+  margin-top: 12px;
+  display:grid;
+  gap: 10px;
+}
+.skeleton{
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite linear;
+}
+@keyframes shimmer{
+  0%{ background-position: 0% 0%; }
+  100%{ background-position: 200% 0%; }
+}
+
+/* Timeline */
+.timeline{
+  list-style:none;
+  margin: 0;
+  padding: 0;
+  display:grid;
+  gap: 12px;
+}
+.timeline__item{
+  position: relative;
+  padding-left: 18px;
+}
+.timeline__dot{
+  position:absolute;
+  left: 0; top: 22px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px rgba(33,150,243,0.12);
+}
+.timeline__content{
+  padding: 14px 14px 14px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.05);
+  transition: transform .18s ease, background .18s ease;
+}
+.timeline__content:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.08);
+}
+.timeline__time{ margin: 0 0 6px; color: var(--muted); font-size: 13px; }
+.timeline__title{ margin: 0 0 6px; font-size: 16px; }
+.timeline__desc{ margin: 0; color: var(--muted); line-height: 1.7; }
+
+/* Projects cards */
+.cards{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.pcard{
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.05);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+.pcard:hover{
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(33,150,243,0.35);
+}
+.pcard__title{ margin: 0 0 8px; font-size: 16px; }
+.pcard__desc, .pcard__role{ margin: 0 0 10px; color: var(--muted); line-height: 1.7; }
+.pcard__links{ display:flex; gap: 10px; flex-wrap: wrap; }
+
+.link{
+  text-decoration:none;
+  color: rgba(255,255,255,0.86);
+  border-bottom: 1px dashed rgba(255,255,255,0.30);
+  padding-bottom: 2px;
+}
+.link:hover{ color: #fff; border-bottom-color: rgba(33,150,243,0.65); }
+
+.contactline{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.05);
+}
+.contactline__label{ color: rgba(255,255,255,0.88); font-weight: 600; }
+
+.footer{
+  padding: 18px 0 34px;
+  border-top: 1px solid var(--line);
+  margin-top: 10px;
+}
+.footer__inner{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap: 12px;
+}
+
+/* Responsive: < 600px */
+@media (max-width: 600px){
+  .hero__grid{ grid-template-columns: 1fr; }
+  .grid2{ grid-template-columns: 1fr; }
+  .cards{ grid-template-columns: 1fr; }
+
+  .navbtn{ display:block; }
+  .nav{
+    position:absolute;
+    right: 20px;
+    top: 58px;
+    display:none;
+    flex-direction: column;
+    width: min(240px, calc(100vw - 40px));
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    background: rgba(11,18,32,0.92);
+    box-shadow: var(--shadow);
+  }
+  .nav.is-open{ display:flex; }
+  .hero__title{ font-size: 34px; }
+}
