@@ -228,35 +228,35 @@
       <div class="container">
         <div class="section__head">
           <h2 class="section__title">Projects</h2>
-          <p class="section__hint">作品集卡片（至少 3 件，含名稱、簡介、角色分工、連結/圖片可選）</p>
+          <p class="section__hint"></p>
         </div>
 
         <div class="cards">
           <article class="pcard">
-            <h3 class="pcard__title">Calculator Web App</h3>
-            <p class="pcard__desc">用 HTML/CSS/JS 實作基本四則運算，練習 DOM 操作與事件處理。</p>
-            <p class="pcard__role"><strong>角色分工：</strong>獨立完成（UI + JS 邏輯）</p>
+            <h3 class="pcard__title">擺接行旅期末報告</h3>
+            <p class="pcard__desc">中和高中特色課程</p>
+            <p class="pcard__role"><strong>：</strong></p>
             <div class="pcard__links">
-              <a class="link" href="#" target="_blank" rel="noreferrer">Demo（之後換成 Pages 連結）</a>
+              <a class="link" href="#" target="_blank" rel="noreferrer">Demo（https://docs.google.com/document/d/1sf_isxaHB9KBeoKTBueldlgziKKWudBm_wwhs6bBq-E/edit?tab=t.0）</a>
               <a class="link" href="#" target="_blank" rel="noreferrer">Repo</a>
             </div>
           </article>
 
           <article class="pcard">
-            <h3 class="pcard__title">Resume Single Page</h3>
-            <p class="pcard__desc">本作業：包含 About / Skills / Timeline / Projects / Contact，並加入響應式與互動動畫。</p>
-            <p class="pcard__role"><strong>角色分工：</strong>獨立完成（資訊架構 + RWD + 動畫）</p>
+            <h3 class="pcard__title">探A報告</h3>
+            <p class="pcard__desc">有很多很多的實驗</p>
+            <p class="pcard__role"><strong></strong></p>
             <div class="pcard__links">
               <a class="link" href="#top">回到頂部</a>
             </div>
           </article>
 
           <article class="pcard">
-            <h3 class="pcard__title">Class Assignment / Side Project</h3>
-            <p class="pcard__desc">可放你國高中或大一的任一作業/專題（例如：簡報、影片專案、程式練習）。</p>
-            <p class="pcard__role"><strong>角色分工：</strong>與同學協作（資料蒐集 / 內容撰寫 / 發表）</p>
+            <h3 class="pcard__title"></h3>
+            <p class="pcard__desc">。</p>
+            <p class="pcard__role"><strong></strong></p>
             <div class="pcard__links">
-              <a class="link" href="#" target="_blank" rel="noreferrer">連結（可選）</a>
+              <a class="link" href="#" target="_blank" rel="noreferrer"></a>
             </div>
           </article>
         </div>
@@ -292,336 +292,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-style.css（整份貼上覆蓋）
-css
-複製程式碼
-:root{
-  --bg: #0b1220;
-  --panel: rgba(255,255,255,0.06);
-  --panel2: rgba(255,255,255,0.09);
-  --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.68);
-  --line: rgba(255,255,255,0.12);
-  --accent: #2196f3;
-  --accent2: #7c5cff;
-  --shadow: 0 14px 40px rgba(0,0,0,0.35);
-  --radius: 18px;
-  --max: 1040px;
-}
-
-*{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
-body{
-  margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif;
-  background:
-    radial-gradient(900px 500px at 10% 0%, rgba(33,150,243,0.25), transparent 60%),
-    radial-gradient(700px 500px at 90% 10%, rgba(124,92,255,0.22), transparent 55%),
-    var(--bg);
-  color: var(--text);
-}
-
-a{ color: inherit; }
-code{ background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 8px; }
-.container{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
-
-.skip{
-  position:absolute; left:-999px; top: 10px;
-  background: #fff; color:#000; padding: 8px 10px; border-radius: 10px;
-}
-.skip:focus{ left: 12px; z-index: 9999; }
-
-.topbar{
-  position: sticky; top: 0; z-index: 20;
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(10px);
-  background: rgba(11,18,32,0.6);
-}
-.topbar__inner{
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 12px 0;
-}
-.brand{ display:flex; gap:10px; align-items:center; text-decoration:none; }
-.brand__dot{
-  width: 12px; height: 12px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  box-shadow: 0 0 0 6px rgba(33,150,243,0.12);
-}
-.brand__text{ font-weight: 800; letter-spacing: 0.2px; }
-
-.nav{
-  display:flex; gap: 14px; align-items:center;
-}
-.nav__link{
-  text-decoration:none;
-  padding: 8px 10px;
-  border-radius: 12px;
-  color: var(--muted);
-  transition: transform .18s ease, background .18s ease, color .18s ease;
-}
-.nav__link:hover{
-  background: rgba(255,255,255,0.08);
-  color: var(--text);
-  transform: translateY(-1px);
-}
-.nav__link.is-active{
-  background: rgba(33,150,243,0.18);
-  color: var(--text);
-}
-
-.navbtn{
-  display:none;
-  background: transparent;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 10px;
-  cursor:pointer;
-}
-.navbtn__bar{
-  display:block;
-  width: 22px; height: 2px;
-  background: rgba(255,255,255,0.9);
-  margin: 5px 0;
-  border-radius: 2px;
-}
-
-.hero{ padding: 44px 0 22px; }
-.hero__grid{
-  display:grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 18px;
-  align-items: start;
-}
-.hero__left{ padding: 6px 0; }
-.avatar{
-  width: 86px; height: 86px;
-  border-radius: 24px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--line);
-  display:grid; place-items:center;
-  box-shadow: var(--shadow);
-}
-
-.hero__title{
-  margin: 14px 0 6px;
-  font-size: 40px;
-  line-height: 1.05;
-  letter-spacing: -0.4px;
-}
-.hero__badge{
-  font-size: 14px;
-  margin-left: 10px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  vertical-align: middle;
-  color: rgba(255,255,255,0.9);
-  background: linear-gradient(135deg, rgba(33,150,243,0.2), rgba(124,92,255,0.18));
-  border: 1px solid rgba(255,255,255,0.12);
-}
-.hero__subtitle{
-  margin: 10px 0 18px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-.hero__cta{ display:flex; gap: 10px; flex-wrap: wrap; }
-
-.btn{
-  display:inline-flex;
-  align-items:center; justify-content:center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.06);
-  text-decoration:none;
-  cursor:pointer;
-  transition: transform .18s ease, background .18s ease, border-color .18s ease;
-}
-.btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.10); }
-.btn--primary{
-  border-color: rgba(33,150,243,0.35);
-  background: linear-gradient(135deg, rgba(33,150,243,0.35), rgba(124,92,255,0.22));
-}
-.btn--small{ padding: 8px 10px; border-radius: 12px; font-size: 13px; }
-
-.meta{
-  margin: 16px 0 0;
-  padding-left: 18px;
-  color: var(--muted);
-}
-.meta a{ color: rgba(255,255,255,0.9); }
-
-.section{ padding: 26px 0; }
-.section__head{
-  display:flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 12px;
-}
-.section__title{ margin: 0; font-size: 22px; letter-spacing: -0.2px; }
-.section__hint{ margin: 0; color: var(--muted); font-size: 14px; }
-
-.card{
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 16px;
-  box-shadow: var(--shadow);
-}
-.card--soft{ background: var(--panel2); }
-.card__title{ margin: 0 0 8px; font-size: 16px; }
-.card__desc{ margin: 0; color: var(--muted); line-height: 1.7; }
-
-.grid2{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.chips{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-.chip{
-  text-decoration:none;
-  padding: 8px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.86);
-  transition: transform .18s ease, background .18s ease;
-}
-.chip:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.10); }
-
-.checklist{ margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.7; }
-.muted{ color: var(--muted); }
-
-.skills-placeholder{
-  margin-top: 12px;
-  display:grid;
-  gap: 10px;
-}
-.skeleton{
-  height: 44px;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.10), rgba(255,255,255,0.06));
-  background-size: 200% 100%;
-  animation: shimmer 1.2s infinite linear;
-}
-@keyframes shimmer{
-  0%{ background-position: 0% 0%; }
-  100%{ background-position: 200% 0%; }
-}
-
-/* Timeline */
-.timeline{
-  list-style:none;
-  margin: 0;
-  padding: 0;
-  display:grid;
-  gap: 12px;
-}
-.timeline__item{
-  position: relative;
-  padding-left: 18px;
-}
-.timeline__dot{
-  position:absolute;
-  left: 0; top: 22px;
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 6px rgba(33,150,243,0.12);
-}
-.timeline__content{
-  padding: 14px 14px 14px 14px;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.05);
-  transition: transform .18s ease, background .18s ease;
-}
-.timeline__content:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.08);
-}
-.timeline__time{ margin: 0 0 6px; color: var(--muted); font-size: 13px; }
-.timeline__title{ margin: 0 0 6px; font-size: 16px; }
-.timeline__desc{ margin: 0; color: var(--muted); line-height: 1.7; }
-
-/* Projects cards */
-.cards{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-.pcard{
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.05);
-  padding: 16px;
-  box-shadow: var(--shadow);
-  transition: transform .18s ease, background .18s ease, border-color .18s ease;
-}
-.pcard:hover{
-  transform: translateY(-3px);
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(33,150,243,0.35);
-}
-.pcard__title{ margin: 0 0 8px; font-size: 16px; }
-.pcard__desc, .pcard__role{ margin: 0 0 10px; color: var(--muted); line-height: 1.7; }
-.pcard__links{ display:flex; gap: 10px; flex-wrap: wrap; }
-
-.link{
-  text-decoration:none;
-  color: rgba(255,255,255,0.86);
-  border-bottom: 1px dashed rgba(255,255,255,0.30);
-  padding-bottom: 2px;
-}
-.link:hover{ color: #fff; border-bottom-color: rgba(33,150,243,0.65); }
-
-.contactline{
-  display:flex;
-  justify-content: space-between;
-  align-items:center;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.05);
-}
-.contactline__label{ color: rgba(255,255,255,0.88); font-weight: 600; }
-
-.footer{
-  padding: 18px 0 34px;
-  border-top: 1px solid var(--line);
-  margin-top: 10px;
-}
-.footer__inner{
-  display:flex;
-  justify-content: space-between;
-  align-items:center;
-  gap: 12px;
-}
-
-/* Responsive: < 600px */
-@media (max-width: 600px){
-  .hero__grid{ grid-template-columns: 1fr; }
-  .grid2{ grid-template-columns: 1fr; }
-  .cards{ grid-template-columns: 1fr; }
-
-  .navbtn{ display:block; }
-  .nav{
-    position:absolute;
-    right: 20px;
-    top: 58px;
-    display:none;
-    flex-direction: column;
-    width: min(240px, calc(100vw - 40px));
-    padding: 10px;
-    border-radius: 16px;
-    border: 1px solid var(--line);
-    background: rgba(11,18,32,0.92);
-    box-shadow: var(--shadow);
-  }
-  .nav.is-open{ display:flex; }
-  .hero__title{ font-size: 34px; }
-}
