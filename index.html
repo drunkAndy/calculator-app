@@ -134,48 +134,25 @@
 
     <!-- SKILLS (A/B 版本會在不同分支做) -->
     <section class="section" id="skills">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title">Skills</h2>
-          <p class="section__hint">A/B Test：此區塊將在兩個分支做兩種版本（進度條 vs 標籤雲）</p>
-        </div>
-
-        <div class="card">
-          <p class="card__desc">
-            目前 main 先放 placeholder。你會在：
-            <code>feature/skills-bars</code> 做 A 版（進度條），
-            <code>feature/skills-tags</code> 做 B 版（標籤雲）。
-            最後只合併其中一個回 main。
-          </p>
-        </div>
-
-        <div class="skills">
-  <div class="skill" data-level="85">
-    <div class="skill__row">
-      <span class="skill__name">HTML / Semantic</span>
-      <span class="skill__pct">85%</span>
+  <div class="container">
+    <div class="section__head">
+      <h2 class="section__title">Skills</h2>
+      <p class="section__hint">B version（標籤雲）：用標籤呈現技能強項</p>
     </div>
-    <div class="skill__bar"><div class="skill__fill"></div></div>
-  </div>
 
-  <div class="skill" data-level="75">
-    <div class="skill__row">
-      <span class="skill__name">CSS / RWD Layout</span>
-      <span class="skill__pct">75%</span>
+    <div class="skills-tags" aria-label="Skills tag cloud">
+      <span class="tag tag--xl">HTML</span>
+      <span class="tag tag--lg">CSS / RWD</span>
+      <span class="tag tag--lg">JavaScript</span>
+      <span class="tag">Git / GitHub</span>
+      <span class="tag">UI Design</span>
+      <span class="tag">Teamwork</span>
+      <span class="tag">Communication</span>
+      <span class="tag">Problem Solving</span>
+      <span class="tag">Presentation</span>
     </div>
-    <div class="skill__bar"><div class="skill__fill"></div></div>
   </div>
-
-  <div class="skill" data-level="70">
-    <div class="skill__row">
-      <span class="skill__name">JavaScript / DOM</span>
-      <span class="skill__pct">70%</span>
-    </div>
-    <div class="skill__bar"><div class="skill__fill"></div></div>
-  </div>
-</div>
-      </div>
-    </section>
+</section>
 
     <!-- EXPERIENCE -->
     <section class="section" id="experience">

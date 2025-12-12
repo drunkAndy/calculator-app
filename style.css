@@ -416,3 +416,28 @@ if (copyBtn) {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   transition: width .8s ease;
 }
+.skills-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+}
+
+.tag{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,0.03);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+
+.tag:hover{
+  transform:translateY(-2px) scale(1.03);
+  box-shadow: var(--shadow);
+}
+
+.tag--lg{ font-size: 16px; padding:12px 16px; }
+.tag--xl{ font-size: 18px; padding:12px 18px; }
