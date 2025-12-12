@@ -26,3 +26,4 @@
 ### git revert 練習（不可用 reset）
 我在這次作業中使用 `git revert` 回復某個 commit，原因是：  
 （例）某次樣式修改導致對比不足、閱讀性變差，因此用 revert 安全地回復到前一個穩定版本。
+TEMP: revert practice
