@@ -10,7 +10,7 @@
 
 ## Live Demo (GitHub Pages)
 - 請在完成部署後，把網址貼在這裡：
-- https://<yourname>.github.io/<repo>/
+- https://drunkandy.github.io/calculator-app/
 
 ---
 
